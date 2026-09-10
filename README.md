@@ -1,99 +1,50 @@
-# InvestorSkills — scroll site
+# InvestorSkills
 
-A scroll-driven landing page for [InvestorSkills](https://github.com/nickloveinvesting/investor-skills),
-a catalog of 46 AI workflow systems for real estate investors and wholesalers.
+Forty-six AI workflow systems for real estate investors and wholesalers, and the
+site that sells them. One repository.
 
-**One page. Zero raster assets.** Every visual is inline SVG, CSS gradient, or type.
-No images, no video, no build step. Two font families are the only external request.
+- **Live:** https://nickloveinvesting.github.io/investorskills/
+- **The catalog:** [`CATALOG.md`](CATALOG.md) · skills in [`skills/`](skills/) · bundles in [`packs/`](packs/)
+- **The site:** [`index.html`](index.html) — one file, no build step
 
----
+## The product
 
-## The signature move
+Each skill is a folder of markdown that installs into Claude, ChatGPT, Cursor, or
+Claude Code and turns that model into a specialist for one step of a transaction.
 
-Act 4 is a working `max-offer-calculator`, not a mockup. It runs the real deduction
-stack from the skill it is selling — selling costs, holding, financing, purchase
-closing, rehab, age-scaled contingency, profit — and converges the purchase price
-iteratively, because purchase price appears on both sides of the equation.
+The differentiator is refusal. A prompt answers whatever it is given, including
+nothing. These declare their required inputs and halt without them, print every
+default they applied, hold fixed decision thresholds so the same deal produces the
+same verdict twice, and name the single input the deal is most sensitive to.
 
-Leave the fields empty and it refuses:
+46 skills across 9 categories. 10 free, 36 paid. $27 a skill, $67 a strategy pack,
+$197 for everything. One-time, no subscription.
 
-```
-HALTED — required input missing.
+Five are authored and shippable; `multifamily-underwriting` carries 15 reference
+documents. The remaining 41 are scaffolded from `internal/catalog.json` —
+`python3 internal/generate.py` rebuilds them and never touches a file marked
+`status: authored`.
 
-Missing: ARV, rehab estimate
+## The site
 
-I will not return a maximum offer without these. A number produced from a
-missing input is the most expensive failure this skill can have —
-it looks exactly like a real answer.
-```
+A single HTML file. **Every visual on it is inline SVG** — no image, no video, no
+gradient, no shadow. Seven numbered plates, each inventing the chart form its own
+question needs, after the 1900 W.E.B. Du Bois data portraits.
 
-That refusal is the pitch. Every other AI product page demonstrates output; this
-one demonstrates the thing that actually separates a workflow from a prompt.
+Plate IV is a working `max-offer-calculator` running the real deduction stack.
+Leave the fields empty and it stamps INSUFFICIENT DATA across a sheet it refuses
+to draw. Fill them and it draws the deduction band, prints a numbered ledger, runs
+two sensitivity solves, and restates the pricing plate in terms of your deal.
 
-## Act score
-
-Seven acts, eight device families, no family repeated in adjacent acts.
-
-| # | Act | Act type | Families |
-|---|---|---|---|
-| 1 | Recognition | `flow` | parallax (4 planes), kinetic |
-| 2 | The cost | `pin` | cue sequence |
-| 3 | The mechanism | `flow` | reveal, staggered in |
-| 4 | **The refusal** | `pin` | pointer, spotlight, live compute |
-| 5 | The range | `pan` | lateral travel |
-| 6 | The arithmetic | `flow` | count |
-| 7 | Commitment | `pin` | magnet |
-
-No `scrub` act: there is no footage, and a generated flythrough would have been
-exactly the clay-diorama failure the engine's own guidance warns against.
-
-Full reasoning, feeling curve, and peak definition: [`BRIEF.md`](BRIEF.md).
-
-## Verification
-
-Rendered in headless Chromium at 1440×900, 390×844, and with
-`prefers-reduced-motion: reduce`, sampled at every act midpoint:
-
-| Check | Desktop | Mobile | Reduced motion |
-|---|---|---|---|
-| Acts rendering content | 7 / 7 | 7 / 7 | 7 / 7 |
-| Horizontal overflow | none | none | none |
-| JS errors | none | none | none |
-| Document length | 11,727px | 12,004px | 11,727px |
-
-Frames in [`docs/shots/`](docs/shots/).
-
-## Design floor
-
-| Token | Value | Contrast on canvas |
-|---|---|---|
-| `--sc-canvas` | `#0a0b0d` | — |
-| `--sc-ink` | `#f2efe9` | 17.4:1 |
-| `--sc-ink-soft` | `#8b8e96` | 5.9:1 (AA body) |
-| `--sc-accent` | `#dfa94a` | 9.2:1 |
-
-Fraunces for display, Inter for text, JetBrains Mono for anything numeric.
-Fluid type via `clamp()`, 8-point spacing, 62ch measure on body copy.
-
-## Run it
+Design system: [`DESIGN.md`](DESIGN.md). Product truth: [`PRODUCT.md`](PRODUCT.md).
 
 ```bash
-python3 -m http.server 8000
+python3 -m http.server 8000     # then open http://localhost:8000
 ```
 
-Then open `http://localhost:8000`. There is nothing to install and nothing to compile.
-
-Deploys to GitHub Pages automatically on push to `main`
-(see [`.github/workflows/pages.yml`](.github/workflows/pages.yml)).
-
-## Credits
-
-Built with [scroll-craft](https://github.com/nateherk/scroll-craft) by Nate Herk.
-`scrollcraft.js` and `scrollcraft.css` are unmodified engine files, MIT licensed —
-see [`ENGINE-LICENSE`](ENGINE-LICENSE). Page design, copy, SVG artwork, and the
-calculator are original.
+Deploys to GitHub Pages on push to `main`.
 
 ## Licence
 
-Page content and design: © 2026 Nick Love. All rights reserved.
-Engine: MIT, Nate Herk.
+Proprietary — see [`LICENSE`](LICENSE). Plates drawn after W.E.B. Du Bois,
+Paris 1900 (public domain).

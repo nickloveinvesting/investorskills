@@ -1,0 +1,551 @@
+{
+  "brand": "InvestorSkills",
+  "tagline": "AI workflow systems for real estate investors and wholesalers.",
+  "pricing": {
+    "single": 27,
+    "pack": 67,
+    "complete": 197,
+    "free_count": 10
+  },
+  "categories": {
+    "deal-analysis": "Deal Analysis & Underwriting",
+    "lead-generation": "Lead Generation & List Building",
+    "seller-negotiation": "Seller Outreach & Negotiation",
+    "rehab-scope": "Rehab Scoping & Contractors",
+    "disposition": "Disposition & Buyer Management",
+    "funding-capital": "Funding & Capital Raise",
+    "transaction-ops": "Contracts & Transaction Ops",
+    "marketing-brand": "Marketing & Authority",
+    "business-systems": "Business Systems & Numbers"
+  },
+  "personas": {
+    "wholesaler": "Wholesaler",
+    "flipper": "Fix-and-Flipper",
+    "multifamily": "Small Multifamily Investor",
+    "agent-investor": "Agent-Investor",
+    "first-deal": "First-Deal Investor"
+  },
+  "skills": [
+    {
+      "slug": "multifamily-underwriting",
+      "name": "Multifamily Underwriting System",
+      "cat": "deal-analysis",
+      "free": false,
+      "flagship": true,
+      "personas": [
+        "multifamily"
+      ],
+      "promise": "Underwrite a 5-50 unit pre-1990s value-add deal end to end: screen, model, scope, and reach a defensible go/no-go."
+    },
+    {
+      "slug": "arv-comp-selector",
+      "name": "ARV & Comp Selector",
+      "cat": "deal-analysis",
+      "free": false,
+      "personas": [
+        "flipper",
+        "wholesaler",
+        "first-deal"
+      ],
+      "promise": "Turn a raw comp pull into a defensible ARV with every adjustment shown and every bad comp thrown out on the record."
+    },
+    {
+      "slug": "max-offer-calculator",
+      "name": "Max Allowable Offer Builder",
+      "cat": "deal-analysis",
+      "free": true,
+      "personas": [
+        "wholesaler",
+        "flipper",
+        "first-deal"
+      ],
+      "promise": "Get a walk-away number backed by real spread math instead of a 70% rule you cannot defend to a seller."
+    },
+    {
+      "slug": "deal-screener-triage",
+      "name": "60-Second Deal Screener",
+      "cat": "deal-analysis",
+      "free": true,
+      "personas": [
+        "wholesaler",
+        "first-deal"
+      ],
+      "promise": "Kill bad deals in under a minute so you spend your day on the three that can actually close."
+    },
+    {
+      "slug": "rent-roll-forensics",
+      "name": "Rent Roll & T12 Forensics",
+      "cat": "deal-analysis",
+      "free": false,
+      "personas": [
+        "multifamily"
+      ],
+      "promise": "Find the inflated income and buried expenses a broker's package is built to hide before you go hard on earnest money."
+    },
+    {
+      "slug": "flip-profit-model",
+      "name": "Flip Profit & Timeline Model",
+      "cat": "deal-analysis",
+      "free": false,
+      "personas": [
+        "flipper"
+      ],
+      "promise": "Model the full flip including holding, financing, and the two-month delay you always forget to budget for."
+    },
+    {
+      "slug": "str-feasibility",
+      "name": "Short-Term Rental Feasibility Check",
+      "cat": "deal-analysis",
+      "free": false,
+      "personas": [
+        "first-deal",
+        "flipper"
+      ],
+      "promise": "Pressure-test an STR pro forma against regulation risk, seasonality, and realistic occupancy before you furnish anything."
+    },
+    {
+      "slug": "buy-box-definer",
+      "name": "Buy Box Definer",
+      "cat": "deal-analysis",
+      "free": true,
+      "personas": [
+        "first-deal",
+        "wholesaler"
+      ],
+      "promise": "Write a buy box specific enough that a wholesaler can send you the right deal without a phone call."
+    },
+    {
+      "slug": "driving-for-dollars-router",
+      "name": "Driving for Dollars Route Planner",
+      "cat": "lead-generation",
+      "free": false,
+      "personas": [
+        "wholesaler",
+        "first-deal"
+      ],
+      "promise": "Turn a target zip into a route and a scoring rubric so a two-hour drive produces a ranked list, not a phone full of photos."
+    },
+    {
+      "slug": "absentee-owner-list",
+      "name": "Absentee & Distressed List Builder",
+      "cat": "lead-generation",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Stack the filters that actually correlate with a motivated seller and cut a 40,000-record county pull to a callable list."
+    },
+    {
+      "slug": "skip-trace-triage",
+      "name": "Skip Trace Result Triage",
+      "cat": "lead-generation",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Rank skip trace output by which number is likely to be answered by the actual decision maker."
+    },
+    {
+      "slug": "direct-mail-sequence",
+      "name": "Direct Mail Sequence Builder",
+      "cat": "lead-generation",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Build a six-touch mail sequence where each piece says something different instead of shouting the same offer louder."
+    },
+    {
+      "slug": "probate-prefore-playbook",
+      "name": "Probate & Pre-Foreclosure Playbook",
+      "cat": "lead-generation",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Work the two hardest lead types without sounding like a vulture, including the timing rules that keep you legal."
+    },
+    {
+      "slug": "ppc-lead-qualifier",
+      "name": "Inbound Lead Qualifier",
+      "cat": "lead-generation",
+      "free": true,
+      "personas": [
+        "wholesaler",
+        "agent-investor"
+      ],
+      "promise": "Score an inbound seller lead in four questions so you know whether to drive out today or drip it for six months."
+    },
+    {
+      "slug": "seller-call-script",
+      "name": "Seller Call Script System",
+      "cat": "seller-negotiation",
+      "free": false,
+      "personas": [
+        "wholesaler",
+        "first-deal"
+      ],
+      "promise": "Run a first seller call that surfaces motivation and condition without triggering the defensive wall a pitch creates."
+    },
+    {
+      "slug": "objection-handler",
+      "name": "Seller Objection Handler",
+      "cat": "seller-negotiation",
+      "free": true,
+      "personas": [
+        "wholesaler",
+        "first-deal"
+      ],
+      "promise": "Answer the nine objections that end most seller calls, in language that keeps the conversation alive."
+    },
+    {
+      "slug": "offer-presentation",
+      "name": "Low Offer Presentation Framework",
+      "cat": "seller-negotiation",
+      "free": false,
+      "personas": [
+        "wholesaler",
+        "flipper"
+      ],
+      "promise": "Present a number well below asking in a way that gets a counter instead of a hang-up."
+    },
+    {
+      "slug": "seller-followup-engine",
+      "name": "Seller Follow-Up Engine",
+      "cat": "seller-negotiation",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Build the twelve-month follow-up cadence that closes the deals your competitors abandoned after two calls."
+    },
+    {
+      "slug": "creative-finance-pitch",
+      "name": "Creative Finance Pitch Builder",
+      "cat": "seller-negotiation",
+      "free": false,
+      "personas": [
+        "multifamily",
+        "first-deal"
+      ],
+      "promise": "Structure and explain seller financing or subject-to in terms a non-investor seller will actually agree to."
+    },
+    {
+      "slug": "scope-of-work",
+      "name": "Scope of Work Generator",
+      "cat": "rehab-scope",
+      "free": false,
+      "personas": [
+        "flipper",
+        "multifamily"
+      ],
+      "promise": "Turn a walkthrough into a line-item scope contractors can bid apples-to-apples against."
+    },
+    {
+      "slug": "rehab-cost-estimator",
+      "name": "Rehab Cost Estimator",
+      "cat": "rehab-scope",
+      "free": false,
+      "personas": [
+        "flipper",
+        "wholesaler"
+      ],
+      "promise": "Price a rehab from photos and a square footage number, with the contingency sized to the age of the building."
+    },
+    {
+      "slug": "contractor-bid-analyzer",
+      "name": "Contractor Bid Analyzer",
+      "cat": "rehab-scope",
+      "free": true,
+      "personas": [
+        "flipper"
+      ],
+      "promise": "Compare three bids that are structured three different ways and find what each one quietly left out."
+    },
+    {
+      "slug": "draw-schedule-builder",
+      "name": "Draw Schedule & Change Order Control",
+      "cat": "rehab-scope",
+      "free": false,
+      "personas": [
+        "flipper"
+      ],
+      "promise": "Tie payments to verified completion so you are never funding work that has not happened."
+    },
+    {
+      "slug": "vintage-systems-audit",
+      "name": "Pre-1990 Systems Risk Audit",
+      "cat": "rehab-scope",
+      "free": false,
+      "personas": [
+        "multifamily",
+        "flipper"
+      ],
+      "promise": "Catch the cast iron, aluminum wiring, and asbestos risks that turn a cosmetic budget into a gut."
+    },
+    {
+      "slug": "cash-buyer-list",
+      "name": "Cash Buyer List Builder",
+      "cat": "disposition",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Build a buyer list from actual closed-transaction data instead of collecting business cards at meetups."
+    },
+    {
+      "slug": "deal-marketing-package",
+      "name": "Deal Marketing Package Writer",
+      "cat": "disposition",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Write the deal email that gets opened, understood, and answered by a buyer who has already seen ten today."
+    },
+    {
+      "slug": "assignment-pricing",
+      "name": "Assignment Fee Pricing",
+      "cat": "disposition",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Set an assignment fee that clears fast without leaving money you had every right to keep."
+    },
+    {
+      "slug": "buyer-objection-dispo",
+      "name": "Buyer Pushback Handler",
+      "cat": "disposition",
+      "free": true,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Hold your number when a cash buyer tries to retrade you two days before closing."
+    },
+    {
+      "slug": "private-lender-package",
+      "name": "Private Lender Package Builder",
+      "cat": "funding-capital",
+      "free": false,
+      "personas": [
+        "flipper",
+        "multifamily"
+      ],
+      "promise": "Assemble the loan package that gets a private lender to yes without a second round of document requests."
+    },
+    {
+      "slug": "jv-structure-designer",
+      "name": "JV & Partnership Structure Designer",
+      "cat": "funding-capital",
+      "free": false,
+      "personas": [
+        "multifamily",
+        "first-deal"
+      ],
+      "promise": "Split money, work, and risk in a way that survives the first deal going sideways."
+    },
+    {
+      "slug": "investor-update-writer",
+      "name": "Investor Update Writer",
+      "cat": "funding-capital",
+      "free": false,
+      "personas": [
+        "multifamily"
+      ],
+      "promise": "Send the quarterly update that keeps capital coming back, including how to report a bad quarter."
+    },
+    {
+      "slug": "capital-raise-deck",
+      "name": "Capital Raise Deck Builder",
+      "cat": "funding-capital",
+      "free": false,
+      "personas": [
+        "multifamily"
+      ],
+      "promise": "Build a deal deck that answers the eight questions every passive investor asks before they ask them."
+    },
+    {
+      "slug": "dscr-lender-matcher",
+      "name": "Loan Product Matcher",
+      "cat": "funding-capital",
+      "free": true,
+      "personas": [
+        "first-deal",
+        "flipper"
+      ],
+      "promise": "Match the deal to the right loan product before you waste three weeks with the wrong lender."
+    },
+    {
+      "slug": "contract-clause-review",
+      "name": "Purchase Contract Clause Review",
+      "cat": "transaction-ops",
+      "free": false,
+      "personas": [
+        "wholesaler",
+        "first-deal"
+      ],
+      "promise": "Read a purchase agreement for the four clauses that decide whether you can actually walk away."
+    },
+    {
+      "slug": "title-issue-triage",
+      "name": "Title Issue Triage",
+      "cat": "transaction-ops",
+      "free": false,
+      "personas": [
+        "wholesaler",
+        "multifamily"
+      ],
+      "promise": "Identify which title defects are a two-week fix and which ones kill the deal today."
+    },
+    {
+      "slug": "closing-timeline-manager",
+      "name": "Closing Timeline Manager",
+      "cat": "transaction-ops",
+      "free": false,
+      "personas": [
+        "wholesaler",
+        "flipper"
+      ],
+      "promise": "Run the contract-to-close calendar backwards from funding so no deadline gets discovered late."
+    },
+    {
+      "slug": "due-diligence-checklist",
+      "name": "Due Diligence Period Runner",
+      "cat": "transaction-ops",
+      "free": false,
+      "personas": [
+        "multifamily"
+      ],
+      "promise": "Work a 30-45 day DD period in the order that surfaces deal-killers before your money goes hard."
+    },
+    {
+      "slug": "investor-content-engine",
+      "name": "Investor Content Engine",
+      "cat": "marketing-brand",
+      "free": false,
+      "personas": [
+        "agent-investor",
+        "wholesaler"
+      ],
+      "promise": "Turn one deal you actually did into two weeks of content that brings sellers and buyers to you."
+    },
+    {
+      "slug": "deal-teardown-post",
+      "name": "Deal Teardown Post Writer",
+      "cat": "marketing-brand",
+      "free": true,
+      "personas": [
+        "agent-investor",
+        "multifamily"
+      ],
+      "promise": "Write the numbers-forward deal breakdown that builds more credibility than any testimonial."
+    },
+    {
+      "slug": "agent-investor-positioning",
+      "name": "Agent-Investor Positioning Kit",
+      "cat": "marketing-brand",
+      "free": false,
+      "personas": [
+        "agent-investor"
+      ],
+      "promise": "Position as the agent who invests without losing the retail clients who pay your bills."
+    },
+    {
+      "slug": "local-authority-seo",
+      "name": "Local Market Authority Builder",
+      "cat": "marketing-brand",
+      "free": false,
+      "personas": [
+        "agent-investor",
+        "wholesaler"
+      ],
+      "promise": "Own the search results for your submarket with content only someone who works it could write."
+    },
+    {
+      "slug": "kpi-dashboard",
+      "name": "Investor KPI Dashboard Designer",
+      "cat": "business-systems",
+      "free": false,
+      "personas": [
+        "wholesaler",
+        "flipper"
+      ],
+      "promise": "Track the six numbers that predict next quarter instead of the twenty that describe last quarter."
+    },
+    {
+      "slug": "crm-pipeline-design",
+      "name": "CRM Pipeline Designer",
+      "cat": "business-systems",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Build stages and automations that match how deals actually move, so nothing rots in the pipeline."
+    },
+    {
+      "slug": "acquisitions-hiring",
+      "name": "Acquisitions Hire & Ramp Plan",
+      "cat": "business-systems",
+      "free": false,
+      "personas": [
+        "wholesaler"
+      ],
+      "promise": "Hire and ramp your first acquisitions person without handing them your best leads to burn."
+    },
+    {
+      "slug": "entity-tax-organizer",
+      "name": "Entity & Tax Season Organizer",
+      "cat": "business-systems",
+      "free": false,
+      "personas": [
+        "flipper",
+        "multifamily"
+      ],
+      "promise": "Organize entities, books, and documents so your CPA asks two questions instead of forty."
+    },
+    {
+      "slug": "post-mortem-review",
+      "name": "Deal Post-Mortem Review",
+      "cat": "business-systems",
+      "free": true,
+      "personas": [
+        "flipper",
+        "wholesaler"
+      ],
+      "promise": "Run the honest review after a deal closes so the same mistake does not cost you twice."
+    }
+  ],
+  "packs": [
+    {
+      "slug": "wholesaler-pack",
+      "name": "Wholesaler Pack",
+      "persona": "wholesaler"
+    },
+    {
+      "slug": "flipper-pack",
+      "name": "Fix-and-Flip Pack",
+      "persona": "flipper"
+    },
+    {
+      "slug": "multifamily-pack",
+      "name": "Small Multifamily Pack",
+      "persona": "multifamily"
+    },
+    {
+      "slug": "first-deal-pack",
+      "name": "First Deal Pack",
+      "persona": "first-deal"
+    },
+    {
+      "slug": "agent-investor-pack",
+      "name": "Agent-Investor Pack",
+      "persona": "agent-investor"
+    },
+    {
+      "slug": "complete-toolkit",
+      "name": "The Complete Investor Toolkit",
+      "persona": null
+    }
+  ]
+}
