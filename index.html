@@ -311,6 +311,14 @@
   .sec h2 { font-size: clamp(1.9rem, 1.1rem + 3.2vw, 3.2rem); margin: 14px 0 0; max-width: 18ch; }
 
   @media (prefers-reduced-motion: reduce) {
+    /* Reveals must never be load-bearing for legibility. If the observer does
+       not fire, the copy has to already be on screen. */
+    [data-sc-in], [data-sc-stagger] > *,
+    [data-sc-reveal], [data-sc-cue] {
+      opacity: 1 !important;
+      transform: none !important;
+      clip-path: none !important;
+    }
     .plane { opacity: 0.42 !important; }
     .cost__stack > * { position: static; opacity: 1 !important; }
     .cost__stack { min-height: 0; display: grid; gap: 26px; }
@@ -426,7 +434,7 @@
 
       <div class="sc-scrim sc-scrim--lead" aria-hidden="true"></div>
 
-      <div class="hero__copy" data-sc-in data-sc-stagger="90">
+      <div class="hero__copy">
         <p class="eyebrow">46 skills · 9 categories · one-time purchase</p>
         <h1 class="sc-display display-serif">
           The only AI that <em>refuses</em> to guess your numbers.
