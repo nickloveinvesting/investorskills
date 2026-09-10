@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>InvestorSkills · AI that refuses to guess your numbers</title>
+<meta name="description" content="Forty-six AI workflow systems for real estate investors. They demand the inputs that matter, show every assumption, and name the number most likely to be wrong.">
+<meta name="theme-color" content="#0a0b0d">
+<meta property="og:title" content="InvestorSkills · AI that refuses to guess your numbers">
+<meta property="og:description" content="Forty-six AI workflow systems for real estate investors and wholesalers. One-time purchase. No subscription.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0b0d'/><path d='M8 23V13m8 10V9m8 14v-6' stroke='%23dfa94a' stroke-width='2.5' stroke-linecap='square'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="scrollcraft.css">
+
+<style>
+  /* ─────────────────────────────────────────────────────────────
+     The whole rebrand: six colours, three faces.
+     ───────────────────────────────────────────────────────────── */
+  :root {
+    --sc-canvas:     #0a0b0d;
+    --sc-surface:    #12141a;
+    --sc-ink:        #f2efe9;
+    --sc-ink-soft:   #8b8e96;
+    --sc-accent:     #dfa94a;
+    --sc-accent-ink: #0a0b0d;
+
+    --sc-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --sc-font-text:    "Inter", system-ui, -apple-system, sans-serif;
+    --sc-font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    /* page-local tokens (8pt grid, extending the engine's scale) */
+    --line:      color-mix(in oklab, var(--sc-ink) 14%, transparent);
+    --line-soft: color-mix(in oklab, var(--sc-ink) 7%, transparent);
+    --measure:   62ch;
+  }
+
+  /* ── Typography floor ───────────────────────────────────────── */
+  .sc-display { font-variation-settings: "opsz" 120, "SOFT" 0, "WONK" 0; }
+  .display-serif {
+    font-family: var(--sc-font-display);
+    font-weight: 300;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
+  }
+  .eyebrow {
+    font-family: var(--sc-font-mono);
+    font-size: clamp(0.66rem, 0.6rem + 0.25vw, 0.76rem);
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+    color: var(--sc-accent);
+    line-height: 1.3;
+  }
+  .eyebrow--mute { color: var(--sc-ink-soft); }
+  .lede {
+    font-size: clamp(1.02rem, 0.94rem + 0.42vw, 1.24rem);
+    line-height: 1.62;
+    color: var(--sc-ink-soft);
+    max-width: var(--measure);
+  }
+  .mono { font-family: var(--sc-font-mono); font-variant-numeric: tabular-nums; }
+  .rule-h { height: 1px; background: var(--line); border: 0; margin: 0; }
+
+  /* ── Site chrome ────────────────────────────────────────────── */
+  .site-bar {
+    position: fixed; inset: 0 0 auto 0; z-index: 90;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--sc-4);
+    padding: clamp(14px, 2.2vw, 22px) clamp(16px, 4vw, 44px);
+    background: linear-gradient(to bottom, color-mix(in oklab, var(--sc-canvas) 88%, transparent), transparent);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+  }
+  .mark {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--sc-font-mono); font-size: 0.8rem;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--sc-ink); text-decoration: none;
+  }
+  .mark svg { display: block; }
+  .bar-cta {
+    font-family: var(--sc-font-mono); font-size: 0.72rem;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--sc-accent-ink); background: var(--sc-accent);
+    text-decoration: none; padding: 9px 15px; border-radius: 2px;
+    transition: filter var(--sc-d-fast, 160ms) ease;
+  }
+  .bar-cta:hover, .bar-cta:focus-visible { filter: brightness(1.12); }
+
+  /* ═══ ACT 1 · parallax hero ══════════════════════════════════ */
+  .hero {
+    position: relative; overflow: hidden; background: var(--sc-canvas);
+    min-height: 100svh;
+    display: grid; align-items: end;
+    padding-block: clamp(120px, 18vh, 190px) clamp(72px, 14vh, 130px);
+  }
+  .plane {
+    position: absolute; left: 50%; top: 50%;
+    translate: -50% -50%;
+    width: min(1500px, 168vw); max-width: none;
+    pointer-events: none;
+    /* parallaxed elements transition opacity only, never transform */
+    transition: opacity 600ms ease;
+  }
+  .plane svg { display: block; width: 100%; height: auto; }
+  .plane--far   { opacity: 0.30; }
+  .plane--mid   { opacity: 0.55; }
+  /* the product plane sits right of the copy column, never behind the headline */
+  .plane--card  { width: min(470px, 62vw); left: 74%; top: 40%; opacity: 0.92; }
+  .plane--front { opacity: 0.9; }
+
+  .hero__copy {
+    position: relative; z-index: 5;
+    width: 100%; max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: clamp(16px, 5vw, 64px);
+    box-sizing: border-box;
+  }
+  .hero__copy > * { max-width: min(44rem, 100%); }
+  .hero h1 {
+    font-size: clamp(2.05rem, 1.15rem + 3.5vw, 4.15rem);
+    margin: 14px 0 clamp(16px, 2vw, 26px);
+    max-width: 13ch;
+  }
+  .hero h1 em {
+    font-style: italic; font-weight: 400;
+    color: var(--sc-accent);
+  }
+  .hero__meta {
+    display: flex; flex-wrap: wrap; gap: 10px 26px;
+    margin-top: clamp(26px, 3.4vw, 44px);
+  }
+  .hero__meta span {
+    font-family: var(--sc-font-mono); font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sc-ink-soft);
+  }
+  /* hides the plane clip line where planes cross the section floor */
+  .hero__floor {
+    position: absolute; inset: auto 0 0 0; height: 260px; z-index: 6;
+    background: linear-gradient(to bottom, transparent, var(--sc-canvas) 76%);
+    pointer-events: none;
+  }
+
+  /* ═══ ACT 2 · pin, the cost ══════════════════════════════════ */
+  .cost { display: grid; place-items: center; padding-inline: clamp(16px, 5vw, 64px); }
+  .cost__inner { max-width: 1000px; width: 100%; position: relative; }
+  .cost__line {
+    font-family: var(--sc-font-display); font-weight: 300;
+    font-size: clamp(1.5rem, 0.85rem + 2.9vw, 3.3rem);
+    line-height: 1.16; letter-spacing: -0.018em;
+    margin: 0; max-width: 22ch;
+  }
+  /* stacked in one place so cues cross-fade rather than push layout */
+  .cost__stack { position: relative; min-height: clamp(180px, 26vh, 300px); }
+  .cost__stack > * { position: absolute; inset: 0 auto auto 0; width: 100%; }
+  .cost__line strong { color: var(--sc-accent); font-weight: 400; }
+  .cost__tick {
+    position: absolute; left: 0; top: -46px;
+    font-family: var(--sc-font-mono); font-size: 0.7rem;
+    letter-spacing: 0.2em; color: var(--sc-ink-soft);
+  }
+
+  /* ═══ ACT 3 · flow, the mechanism ════════════════════════════ */
+  .mech__grid {
+    display: grid; gap: clamp(28px, 4vw, 64px);
+    grid-template-columns: 1fr;
+    margin-top: clamp(38px, 5vw, 68px);
+  }
+  @media (min-width: 860px) { .mech__grid { grid-template-columns: 1fr 1fr; } }
+  .col { border-top: 1px solid var(--line); padding-top: var(--sc-5, 20px); }
+  .col h3 {
+    font-family: var(--sc-font-mono); font-size: 0.74rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    margin: 0 0 18px; font-weight: 500;
+  }
+  .col--a h3 { color: var(--sc-ink-soft); }
+  .col--b h3 { color: var(--sc-accent); }
+  .col ul { list-style: none; margin: 0; padding: 0; }
+  .col li {
+    padding: 13px 0; border-bottom: 1px solid var(--line-soft);
+    font-size: 0.97rem; line-height: 1.55; color: var(--sc-ink-soft);
+    display: grid; grid-template-columns: 22px 1fr; gap: 12px;
+  }
+  .col li::before {
+    content: "—"; font-family: var(--sc-font-mono); color: var(--sc-ink-soft);
+    opacity: 0.5;
+  }
+  .col--b li { color: var(--sc-ink); }
+  .col--b li::before { content: "+"; color: var(--sc-accent); opacity: 1; }
+
+  /* ═══ ACT 4 · the refusal (the peak) ═════════════════════════ */
+  .refuse { display: grid; place-items: center; padding: clamp(74px,10vh,108px) clamp(16px, 5vw, 64px) clamp(24px,3vh,40px); }
+  .refuse__inner { width: min(880px, 100%); }
+  .refuse__head { text-align: center; margin-bottom: clamp(18px, 2.6vw, 30px); }
+  .refuse__head h2 {
+    font-size: clamp(1.6rem, 1rem + 2.5vw, 2.6rem);
+    margin: 10px 0 0;
+  }
+  .term {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: color-mix(in oklab, var(--sc-surface) 82%, black);
+    box-shadow: 0 40px 90px -50px rgba(0,0,0,0.95);
+    overflow: hidden;
+  }
+  .term__bar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-bottom: 1px solid var(--line);
+    font-family: var(--sc-font-mono); font-size: 0.68rem;
+    letter-spacing: 0.13em; text-transform: uppercase; color: var(--sc-ink-soft);
+  }
+  .term__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sc-accent); flex: none; }
+  .term__body { padding: clamp(16px, 3vw, 26px); }
+  .term__fields { display: grid; gap: 14px; grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .term__fields { grid-template-columns: 1fr 1fr auto; align-items: end; } }
+  .field label {
+    display: block; font-family: var(--sc-font-mono); font-size: 0.66rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--sc-ink-soft);
+    margin-bottom: 7px;
+  }
+  .field input {
+    width: 100%; box-sizing: border-box;
+    font-family: var(--sc-font-mono); font-size: 0.94rem;
+    color: var(--sc-ink); background: var(--sc-canvas);
+    border: 1px solid var(--line); border-radius: 2px;
+    padding: 11px 12px;
+    transition: border-color 160ms ease;
+  }
+  .field input::placeholder { color: color-mix(in oklab, var(--sc-ink-soft) 65%, transparent); }
+  .field input:focus-visible { outline: none; border-color: var(--sc-accent); }
+  .run {
+    font-family: var(--sc-font-mono); font-size: 0.72rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sc-accent-ink); background: var(--sc-accent);
+    border: 0; border-radius: 2px; padding: 12px 20px; cursor: pointer;
+    transition: filter 160ms ease;
+    min-height: 44px;
+  }
+  .run:hover, .run:focus-visible { filter: brightness(1.12); }
+  .term__out {
+    margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line);
+    font-family: var(--sc-font-mono); font-size: clamp(0.7rem, 0.64rem + 0.26vw, 0.82rem);
+    line-height: 1.62; white-space: pre-wrap; word-break: break-word;
+    color: var(--sc-ink-soft); min-height: 6.5em;
+  }
+  .term__out .refusal { color: var(--sc-accent); }
+  .term__out .val { color: var(--sc-ink); }
+  .refuse__note {
+    margin: 16px auto 0; text-align: center; max-width: 58ch;
+    font-size: 0.8rem; line-height: 1.55; color: var(--sc-ink-soft);
+  }
+
+  /* ═══ ACT 5 · pan, the range ═════════════════════════════════ */
+  .rail { display: flex; align-items: stretch; gap: clamp(18px, 2.4vw, 30px); padding-inline: clamp(16px, 6vw, 90px); }
+  .rail__lead { flex: none; width: min(460px, 78vw); align-self: center; padding-right: clamp(10px, 2vw, 28px); }
+  .rail__lead h2 { font-size: clamp(1.9rem, 1.1rem + 3.2vw, 3.2rem); margin: 14px 0 18px; }
+  .cat {
+    flex: none; width: min(310px, 72vw);
+    border: 1px solid var(--line); border-radius: 3px;
+    background: color-mix(in oklab, var(--sc-surface) 60%, transparent);
+    padding: clamp(18px, 2vw, 26px);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .cat__n { font-family: var(--sc-font-mono); font-size: 0.68rem; letter-spacing: 0.16em; color: var(--sc-accent); }
+  .cat h3 { font-family: var(--sc-font-text); font-size: 1.06rem; font-weight: 600; margin: 0; line-height: 1.35; letter-spacing: -0.01em; }
+  .cat p { margin: 0; font-size: 0.9rem; line-height: 1.58; color: var(--sc-ink-soft); }
+  .cat__count { margin-top: auto; font-family: var(--sc-font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sc-ink-soft); }
+
+  /* ═══ ACT 6 · flow + count, the arithmetic ═══════════════════ */
+  .tiers { display: grid; gap: clamp(16px, 2.2vw, 26px); grid-template-columns: 1fr; margin-top: clamp(34px, 4.4vw, 56px); }
+  @media (min-width: 760px) { .tiers { grid-template-columns: repeat(3, 1fr); } }
+  .tier { border: 1px solid var(--line); border-radius: 3px; padding: clamp(20px, 2.4vw, 30px); display: flex; flex-direction: column; gap: 14px; }
+  .tier--hero { border-color: var(--sc-accent); background: color-mix(in oklab, var(--sc-accent) 6%, transparent); }
+  .tier__label { font-family: var(--sc-font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sc-ink-soft); }
+  .tier--hero .tier__label { color: var(--sc-accent); }
+  .tier__price { font-family: var(--sc-font-display); font-weight: 300; font-size: clamp(2.4rem, 1.4rem + 3.4vw, 3.6rem); line-height: 1; letter-spacing: -0.03em; }
+  .tier__price .sc-nums { font-family: inherit; }
+  .tier p { margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--sc-ink-soft); }
+  .against { margin-top: clamp(32px, 4vw, 52px); border-top: 1px solid var(--line); padding-top: clamp(20px, 2.6vw, 30px); display: grid; gap: 18px; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .against { grid-template-columns: repeat(3, 1fr); } }
+  .against div { font-size: 0.9rem; line-height: 1.6; color: var(--sc-ink-soft); }
+  .against b { display: block; font-family: var(--sc-font-mono); font-size: 1.35rem; color: var(--sc-ink); font-weight: 500; margin-bottom: 6px; letter-spacing: -0.01em; }
+
+  /* ═══ ACT 7 · close ══════════════════════════════════════════ */
+  .close { display: grid; grid-template-rows: 1fr auto; padding-inline: clamp(16px, 5vw, 64px); }
+  .close__inner { display: grid; place-content: center; justify-items: center; text-align: center; gap: clamp(22px, 3vw, 34px); }
+  .close h2 { font-size: clamp(2.1rem, 1.1rem + 4.3vw, 4.4rem); margin: 0; max-width: 14ch; }
+  .cta {
+    display: inline-block;
+    font-family: var(--sc-font-mono); font-size: 0.78rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--sc-accent-ink); background: var(--sc-accent);
+    text-decoration: none; padding: 17px 34px; border-radius: 2px;
+    min-height: 44px; box-sizing: border-box;
+  }
+  .foot {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 14px; padding: 22px 0; border-top: 1px solid var(--line);
+    font-family: var(--sc-font-mono); font-size: 0.68rem;
+    letter-spacing: 0.1em; color: var(--sc-ink-soft);
+  }
+  .foot a { color: var(--sc-ink-soft); }
+
+  /* ── shared section furniture ───────────────────────────────── */
+  .wrap { max-width: 1180px; margin-inline: auto; padding-inline: clamp(16px, 5vw, 64px); width: 100%; box-sizing: border-box; }
+  .sec { padding-block: clamp(84px, 13vh, 168px); }
+  .sec h2 { font-size: clamp(1.9rem, 1.1rem + 3.2vw, 3.2rem); margin: 14px 0 0; max-width: 18ch; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .plane { opacity: 0.42 !important; }
+    .cost__stack > * { position: static; opacity: 1 !important; }
+    .cost__stack { min-height: 0; display: grid; gap: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<header class="site-bar">
+  <a class="mark" href="#top">
+    <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="6" fill="#12141a"/>
+      <path d="M8 23V13m8 10V9m8 14v-6" stroke="#dfa94a" stroke-width="2.5" stroke-linecap="square"/>
+    </svg>
+    InvestorSkills
+  </a>
+  <a class="bar-cta" href="#get">Get the toolkit</a>
+</header>
+
+<main id="top">
+
+  <!-- ═══ 1 · RECOGNITION — flow act, parallax + kinetic families ═ -->
+  <section data-sc-act="flow" data-sc-drift="#0a0b0d">
+    <div class="hero">
+
+      <!-- FAR: plat grid + horizon -->
+      <div class="plane plane--far" data-sc-parallax="-1.2" aria-hidden="true">
+        <svg viewBox="0 0 1500 900" fill="none">
+          <defs>
+            <pattern id="pg" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M60 0H0v60" stroke="#f2efe9" stroke-width="0.6" opacity="0.5"/>
+            </pattern>
+            <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="0.42" stop-color="#fff" stop-opacity="1"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0.15"/>
+            </linearGradient>
+            <mask id="fm"><rect width="1500" height="900" fill="url(#fade)"/></mask>
+          </defs>
+          <g mask="url(#fm)">
+            <rect width="1500" height="900" fill="url(#pg)"/>
+            <path d="M0 470h1500" stroke="#dfa94a" stroke-width="1" opacity="0.5"/>
+            <path d="M120 470V240M300 470V300M1180 470V270M1380 470V330" stroke="#f2efe9" stroke-width="0.8" opacity="0.35"/>
+            <circle cx="120" cy="240" r="3" fill="#dfa94a" opacity="0.7"/>
+            <circle cx="1180" cy="270" r="3" fill="#dfa94a" opacity="0.7"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- MID: multifamily elevations, solid below silhouette -->
+      <div class="plane plane--mid" data-sc-parallax="-0.7" aria-hidden="true">
+        <svg viewBox="0 0 1500 900" fill="none">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#20242e"/><stop offset="1" stop-color="#12141a"/>
+            </linearGradient>
+          </defs>
+          <!-- each block is filled solid from its top edge to the baseline -->
+          <g fill="url(#bg1)" stroke="#f2efe9" stroke-opacity="0.16" stroke-width="1">
+            <rect x="60"   y="430" width="200" height="470"/>
+            <rect x="280"  y="360" width="150" height="540"/>
+            <rect x="450"  y="470" width="230" height="430"/>
+            <rect x="1060" y="400" width="180" height="500"/>
+            <rect x="1260" y="480" width="190" height="420"/>
+          </g>
+          <g fill="#dfa94a" opacity="0.30">
+            <rect x="86"   y="456" width="14" height="20"/><rect x="116" y="456" width="14" height="20"/>
+            <rect x="146"  y="456" width="14" height="20"/><rect x="86"  y="496" width="14" height="20"/>
+            <rect x="146"  y="496" width="14" height="20"/><rect x="306" y="386" width="14" height="20"/>
+            <rect x="336"  y="386" width="14" height="20"/><rect x="306" y="426" width="14" height="20"/>
+            <rect x="1086" y="426" width="14" height="20"/><rect x="1146" y="426" width="14" height="20"/>
+            <rect x="1286" y="506" width="14" height="20"/><rect x="1346" y="506" width="14" height="20"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- PRODUCT: the analysis card, sits between mid and front -->
+      <div class="plane plane--card" data-sc-parallax="-0.35" aria-hidden="true">
+        <svg viewBox="0 0 560 340" fill="none">
+          <rect x="0.5" y="0.5" width="559" height="339" rx="4" fill="#12141a" stroke="#dfa94a" stroke-opacity="0.4"/>
+          <path d="M0 44h560" stroke="#f2efe9" stroke-opacity="0.14"/>
+          <circle cx="24" cy="22" r="4" fill="#dfa94a"/>
+          <g fill="#f2efe9" fill-opacity="0.30">
+            <rect x="42" y="18" width="120" height="7" rx="1"/>
+            <rect x="28" y="74"  width="210" height="9" rx="1"/>
+            <rect x="28" y="102" width="330" height="7" rx="1"/>
+            <rect x="28" y="124" width="290" height="7" rx="1"/>
+            <rect x="28" y="146" width="316" height="7" rx="1"/>
+            <rect x="28" y="196" width="180" height="7" rx="1"/>
+            <rect x="28" y="218" width="240" height="7" rx="1"/>
+          </g>
+          <rect x="28" y="256" width="250" height="16" rx="1" fill="#dfa94a" fill-opacity="0.75"/>
+          <path d="M28 292h504" stroke="#f2efe9" stroke-opacity="0.10" stroke-dasharray="3 4"/>
+          <rect x="28" y="306" width="96" height="7" rx="1" fill="#f2efe9" fill-opacity="0.18"/>
+        </svg>
+      </div>
+
+      <!-- FRONT: measurement bar, dipped in the middle so it never covers the copy -->
+      <div class="plane plane--front" data-sc-parallax="0.45" aria-hidden="true">
+        <svg viewBox="0 0 1500 900" fill="none">
+          <path d="M0 812 Q 375 792 560 862 L 940 862 Q 1125 792 1500 812 L1500 900 L0 900 Z"
+                fill="#0a0b0d"/>
+          <path d="M0 812 Q 375 792 560 862 L 940 862 Q 1125 792 1500 812"
+                stroke="#dfa94a" stroke-opacity="0.55" stroke-width="1.2"/>
+          <g stroke="#f2efe9" stroke-opacity="0.22" stroke-width="1">
+            <path d="M80 818v22M180 820v14M280 823v14M380 828v14M480 840v22M1020 840v22M1120 828v14M1220 823v14M1320 820v14M1420 816v22"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="sc-scrim sc-scrim--lead" aria-hidden="true"></div>
+
+      <div class="hero__copy" data-sc-in data-sc-stagger="90">
+        <p class="eyebrow">46 skills · 9 categories · one-time purchase</p>
+        <h1 class="sc-display display-serif">
+          The only AI that <em>refuses</em> to guess your numbers.
+        </h1>
+        <p class="lede">
+          Ask a general model for a max offer and it hands you the 70% rule. These
+          skills stop, name the input you left out, and will not produce a number
+          until you supply it.
+        </p>
+        <div class="hero__meta">
+          <span>Claude</span><span>ChatGPT</span><span>Cursor</span><span>Claude&nbsp;Code</span>
+        </div>
+      </div>
+
+      <div class="hero__floor" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 2 · THE COST — pin ═════════════════════════════════════ -->
+  <section data-sc-act="pin" data-sc-span="3.2" data-sc-drift="#12141a">
+    <div data-sc-stage class="cost">
+      <div class="cost__inner">
+        <p class="cost__tick mono">THE COST</p>
+        <div class="cost__stack">
+          <p class="cost__line display-serif" data-sc-cue="0 0.30 0">
+            You already use AI on deals.
+          </p>
+          <p class="cost__line display-serif" data-sc-cue="0.24 0.56">
+            It answers every time. That is the problem.
+          </p>
+          <p class="cost__line display-serif" data-sc-cue="0.50 0.82">
+            A confident ARV built on four bad comps costs
+            <strong>more than no answer at all.</strong>
+          </p>
+          <p class="cost__line display-serif" data-sc-cue="0.78">
+            A tool that never says <strong>&ldquo;I don't have enough&rdquo;</strong>
+            is not a tool. It is a guess with good grammar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · THE MECHANISM — flow + reveal ══════════════════════ -->
+  <section class="sc-section sec" data-sc-act="flow" data-sc-drift="#0b0c10">
+    <div class="wrap">
+      <div data-sc-in data-sc-stagger="70">
+        <p class="eyebrow">The mechanism</p>
+        <h2 class="sc-display display-serif">A prompt asks. A skill decides.</h2>
+        <p class="lede" style="margin-top:20px">
+          Same model, same deal, two different objects. One is a message you retype.
+          The other is a workflow the model has to obey.
+        </p>
+      </div>
+
+      <div class="mech__grid" data-sc-reveal="up" data-sc-reveal-at="0.12 0.5">
+        <div class="col col--a">
+          <h3>A prompt</h3>
+          <ul>
+            <li>Pasted fresh each time, worded slightly differently</li>
+            <li>Answers whatever it is given, including nothing</li>
+            <li>Hides which assumptions it invented</li>
+            <li>Same deal, two sessions, two verdicts</li>
+            <li>No record of what it refused to consider</li>
+          </ul>
+        </div>
+        <div class="col col--b">
+          <h3>A skill</h3>
+          <ul>
+            <li>Installed once, applies to every conversation</li>
+            <li>Declares required inputs and stops without them</li>
+            <li>Prints every default it used, so you can override it</li>
+            <li>Fixed decision thresholds, so the verdict repeats</li>
+            <li>Names the one input the deal is most sensitive to</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · THE REFUSAL — pin + pointer · THE PEAK ═════════════ -->
+  <section id="demo" data-sc-act="pin" data-sc-span="2.4" data-sc-drift="#0a0b0d">
+    <div data-sc-stage class="refuse" data-sc-spotlight>
+      <div class="refuse__inner">
+        <div class="refuse__head" data-sc-cue="0">
+          <p class="eyebrow">Live · Max Allowable Offer Builder</p>
+          <h2 class="sc-display display-serif">Try to make it answer.</h2>
+        </div>
+
+        <div class="term" data-sc-cue="0">
+          <div class="term__bar"><span class="term__dot"></span> max-offer-calculator · v1.0.0</div>
+          <div class="term__body">
+            <div class="term__fields">
+              <div class="field">
+                <label for="arv">ARV</label>
+                <input id="arv" type="text" inputmode="numeric" placeholder="leave me empty">
+              </div>
+              <div class="field">
+                <label for="rehab">Rehab estimate</label>
+                <input id="rehab" type="text" inputmode="numeric" placeholder="leave me empty">
+              </div>
+              <button class="run" id="run" type="button">Run</button>
+            </div>
+            <div class="term__out mono" id="out" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <p class="refuse__note">
+          That refusal is the product. Every skill in the catalog has one, because a
+          number produced from a missing input is the most expensive thing an AI can
+          hand you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · THE RANGE — pan ════════════════════════════════════ -->
+  <section data-sc-act="pan" data-sc-span="3.4" data-sc-drift="#0c0d11">
+    <div data-sc-stage>
+      <div class="rail" data-sc-pan="0.055">
+        <div class="rail__lead">
+          <p class="eyebrow">The range</p>
+          <h2 class="sc-display display-serif">Nine categories. One deal, end to end.</h2>
+          <p class="lede">
+            Built around how a transaction actually moves, not around what is easy to
+            write. Buy one, buy a strategy pack, or take the catalog.
+          </p>
+        </div>
+
+        <article class="cat"><p class="cat__n">01</p><h3>Deal Analysis &amp; Underwriting</h3><p>ARV with every adjustment shown, max offer from real cost lines, rent roll forensics, flip and STR models.</p><p class="cat__count">8 skills</p></article>
+        <article class="cat"><p class="cat__n">02</p><h3>Lead Generation &amp; Lists</h3><p>Filter stacks that correlate with motivation, skip trace triage, mail sequences, probate and pre-foreclosure timing.</p><p class="cat__count">6 skills</p></article>
+        <article class="cat"><p class="cat__n">03</p><h3>Seller Outreach &amp; Negotiation</h3><p>First-call structure, nine objections answered without the word &ldquo;but&rdquo;, low-offer presentation, twelve-month follow-up.</p><p class="cat__count">5 skills</p></article>
+        <article class="cat"><p class="cat__n">04</p><h3>Rehab Scoping &amp; Contractors</h3><p>Line-item scope from a walkthrough, cost from photos, three bids compared, draw schedules tied to verified work.</p><p class="cat__count">5 skills</p></article>
+        <article class="cat"><p class="cat__n">05</p><h3>Disposition &amp; Buyers</h3><p>Buyer lists from closed-transaction data, deal emails that get answered, assignment pricing, retrade defence.</p><p class="cat__count">4 skills</p></article>
+        <article class="cat"><p class="cat__n">06</p><h3>Funding &amp; Capital Raise</h3><p>Lender packages that clear in one round, JV structures that survive a bad deal, investor updates, raise decks.</p><p class="cat__count">5 skills</p></article>
+        <article class="cat"><p class="cat__n">07</p><h3>Contracts &amp; Transaction Ops</h3><p>The four clauses that decide whether you can walk, title triage, closing calendars run backwards from funding.</p><p class="cat__count">4 skills</p></article>
+        <article class="cat"><p class="cat__n">08</p><h3>Marketing &amp; Authority</h3><p>One closed deal into two weeks of content, numbers-forward teardowns, agent-investor positioning.</p><p class="cat__count">4 skills</p></article>
+        <article class="cat"><p class="cat__n">09</p><h3>Business Systems &amp; Numbers</h3><p>The six KPIs that predict next quarter, CRM stages that match how deals move, hiring, entities, post-mortems.</p><p class="cat__count">5 skills</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · THE ARITHMETIC — flow + count ══════════════════════ -->
+  <section class="sc-section sec" data-sc-act="flow" data-sc-drift="#0a0b0d">
+    <div class="wrap">
+      <div data-sc-in data-sc-stagger="70">
+        <p class="eyebrow">The arithmetic</p>
+        <h2 class="sc-display display-serif">Priced against one deal, not one month.</h2>
+      </div>
+
+      <div class="tiers">
+        <div class="tier">
+          <p class="tier__label">Single skill</p>
+          <p class="tier__price">$<span class="sc-nums" data-sc-count="0 27" data-sc-count-at="0.05 0.35">0</span></p>
+          <p>One workflow, yours permanently. Start with the one step costing you the most.</p>
+        </div>
+        <div class="tier">
+          <p class="tier__label">Strategy pack</p>
+          <p class="tier__price">$<span class="sc-nums" data-sc-count="0 67" data-sc-count-at="0.08 0.4">0</span></p>
+          <p>Every skill for one strategy: wholesaling, flipping, small multifamily, first deal, or agent-investor.</p>
+        </div>
+        <div class="tier tier--hero">
+          <p class="tier__label">Complete toolkit</p>
+          <p class="tier__price">$<span class="sc-nums" data-sc-count="0 197" data-sc-count-at="0.11 0.46">0</span></p>
+          <p>All 36 paid skills, plus everything added later. No subscription, no seat count, no expiry.</p>
+        </div>
+      </div>
+
+      <div class="against">
+        <div><b>10 free</b>Skills at no cost, so you can judge the format before paying for it.</div>
+        <div><b>$972</b>What the toolkit's skills cost bought one at a time.</div>
+        <div><b>1</b>Assignment fee that pays for the catalog roughly forty times over.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 · COMMITMENT — pin + magnet · last element ═══════════ -->
+  <section id="get" data-sc-act="pin" data-sc-span="1.15" data-sc-drift="#0a0b0d">
+    <div data-sc-stage class="close">
+      <div class="close__inner">
+        <p class="eyebrow" data-sc-cue="0.04">Start with the free ten</p>
+        <h2 class="sc-display display-serif" data-sc-cue="0.06" data-sc-kinetic="lines">
+          Make it refuse you.
+        </h2>
+        <a class="cta" href="https://github.com/nickloveinvesting/investor-skills"
+           data-sc-magnet="0.26" data-sc-cue="0.06" data-sc-rise="0">Get the toolkit</a>
+      </div>
+      <footer class="foot">
+        <span>InvestorSkills · Dallas–Fort Worth, TX</span>
+        <span><a href="https://github.com/nickloveinvesting/investor-skills">Repository</a> · Built with scroll-craft</span>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script>
+(function () {
+  ScrollCraft.mount(document.body);
+
+  /* ── Act 4 · the signature move ───────────────────────────────
+     A real deduction stack, not a mock. Same logic as the skill:
+     refuse without ARV or rehab, then show every line.
+     ───────────────────────────────────────────────────────────── */
+  var out = document.getElementById('out');
+  var arvEl = document.getElementById('arv');
+  var rehEl = document.getElementById('rehab');
+
+  var num = function (el) {
+    var n = parseFloat(String(el.value).replace(/[^0-9.]/g, ''));
+    return isFinite(n) && n > 0 ? n : null;
+  };
+  var usd = function (n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  };
+
+  function refusal(missing) {
+    return '<span class="refusal">HALTED — required input missing.</span>\n\n' +
+      'Missing: ' + missing.join(', ') + '\n\n' +
+      'I will not return a maximum offer without ' +
+      (missing.length > 1 ? 'these.' : 'this.') + ' A number produced from a\n' +
+      'missing input is the most expensive failure this skill can have —\n' +
+      'it looks exactly like a real answer.\n\n' +
+      'Supply ' + (missing.length > 1 ? 'them' : 'it') + ' and run again.';
+  }
+
+  function solve(arv, rehab) {
+    var HOLD = 5;                    // months, stated default
+    var sell   = arv * 0.065;        // commission + seller closing
+    var hold   = HOLD * (arv * 0.024 / 12 + 430);  // tax + ins/util/maint
+    var conting = rehab * 0.15;      // pre-1990 default
+    var profit = Math.max(arv * 0.12, 30000);
+
+    // purchase appears on both sides; converge in three passes
+    var p = arv * 0.65;
+    for (var i = 0; i < 6; i++) {
+      var loan = 0.85 * (p + rehab);
+      var fin  = loan * 0.02 + loan * 0.11 / 12 * HOLD;
+      var close = Math.max(p * 0.012, 2500);
+      var next = arv - sell - hold - fin - close - rehab - conting - profit;
+      if (Math.abs(next - p) < 250) { p = next; break; }
+      p = next;
+    }
+    return {
+      mao: Math.floor(p / 500) * 500,
+      sell: sell, hold: hold, conting: conting, profit: profit,
+      fin: 0.85 * (p + rehab) * 0.02 + 0.85 * (p + rehab) * 0.11 / 12 * HOLD,
+      close: Math.max(p * 0.012, 2500), hold_m: HOLD
+    };
+  }
+
+  function report(arv, rehab) {
+    var r = solve(arv, rehab);
+    if (r.mao <= 0) {
+      return '<span class="refusal">NO VIABLE OFFER.</span>\n\n' +
+        'At ' + usd(arv) + ' ARV against a ' + usd(rehab) + ' rehab, every price\n' +
+        'above zero returns less than the required margin. Either the rehab is\n' +
+        'mis-scoped or the ARV is inflated. Re-verify before offering.';
+    }
+    var sens = solve(arv, rehab * 1.2).mao;
+    var sens2 = solve(arv * 0.95, rehab).mao;
+    var dR = Math.abs(r.mao - sens), dA = Math.abs(r.mao - sens2);
+    var worst = Math.abs(dR - dA) < 2000
+      ? 'ARV and rehab, equally'
+      : (dR > dA ? 'Rehab estimate' : 'ARV');
+
+    return 'MAX ALLOWABLE OFFER: <span class="val">' + usd(r.mao) + '</span>\n' +
+      'Exit: flip · hold ' + r.hold_m + ' months\n\n' +
+      '  ARV                        <span class="val">' + usd(arv) + '</span>\n' +
+      '  − Selling costs            (' + usd(r.sell) + ')\n' +
+      '  − Holding (' + r.hold_m + ' mo)           (' + usd(r.hold) + ')\n' +
+      '  − Financing                (' + usd(r.fin) + ')\n' +
+      '  − Purchase closing         (' + usd(r.close) + ')\n' +
+      '  − Rehab                    (' + usd(rehab) + ')\n' +
+      '  − Contingency 15%          (' + usd(r.conting) + ')\n' +
+      '  − Profit                   (' + usd(r.profit) + ')\n' +
+      '  = OFFER                    <span class="val">' + usd(r.mao) + '</span>\n\n' +
+      'SENSITIVITY\n' +
+      '  Rehab +20%   →  ' + usd(sens) + '\n' +
+      '  ARV −5%      →  ' + usd(sens2) + '\n\n' +
+      '<span class="refusal">MOST SENSITIVE INPUT: ' + worst + '.</span> Verify before you offer.\n' +
+      'Defaults: 11% + 2pts at 85% LTC · 2.4% tax · 15% contingency. Override and re-run.';
+  }
+
+  function run() {
+    var arv = num(arvEl), rehab = num(rehEl), missing = [];
+    if (!arv)   missing.push('ARV');
+    if (!rehab) missing.push('rehab estimate');
+    out.innerHTML = missing.length ? refusal(missing) : report(arv, rehab);
+  }
+
+  document.getElementById('run').addEventListener('click', run);
+  [arvEl, rehEl].forEach(function (el) {
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
+  });
+
+  // land on the refusal, so the peak is the first thing the panel does
+  run();
+})();
+</script>
+</body>
+</html>
